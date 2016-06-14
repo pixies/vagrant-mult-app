@@ -1,0 +1,36 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  
+  config.vm.define "app1" do |app1|
+    app1.vm.box = "debian/jessie64"
+    app1.vm.hostname = "app1"
+    #app1.vm.box_url "debian/jessie64"
+    app1.vm.network "private_network", ip: "192.168.33.10"
+    
+    #app.vm.provider :virtualbox do |vbx|
+    #  vbx.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    #  vbx.customize ["modifyvm", :id, "--memory", 512]
+    #  vbx.customize ["modifyvm", :id, "--name", "app1" ]
+    #end
+
+  end
+
+
+  config.vm.define "app2" do |app2|
+    app2.vm.box = "debian/jessie64"
+    app2.vm.hostname = "app2"
+    #app2.vm.box_url "debian/jessie64"
+    app2.vm.network "private_network", ip: "192.168.33.11"
+
+    #app.vm.provider :virtualbox do |vbx|
+    #  vbx.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    #  vbx.customize ["modifyvm", :id, "--memory", 512]
+    #  vbx.customize ["modifyvm", :id, "--name", "app2" ]
+    #end
+
+  end
+
+
+end
